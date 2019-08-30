@@ -13,22 +13,17 @@
             var btn=document.getElementById("btn");
             btn.onclick=function() {
                 //alert("你好。");
-                layer.confirm('您是如何看待前端开发？', {
-                    btn: ['麻烦','不麻烦'] //按钮
-                }, function(){
-                    layer.msg('的确麻烦', {icon: 1});
-                }, function(){
-                    layer.msg('不麻烦就好', {
-                        time: 20000, //20s后自动关闭
-                        btn: ['明白了', '知道了']
-                    });
+                layer.tips('我是另外一个tips，只不过我长得跟之前那位稍有些不一样。', '#text', {
+                    tips: [1, '#3595CC'],
+                    time: 1000
                 });
-
             }
         }
     </script>
 </head>
 <body>
         <input type="button" id="btn" value="点击"/>
+        <br/>
+        <input type="text" id="text">
 </body>
 </html>
