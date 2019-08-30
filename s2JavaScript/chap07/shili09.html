@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="box">
+    <h2 style="background-color: blue;">窗边的小豆豆</h2>
+    <div class="txt" style="background-color: pink;">
+        <p>:hover 选择器用于选择鼠标指针浮动在上面的元素。提示：:hover 选择器可用于所有元素，不只是链接。</p>
+        <p>提示：:link 选择器设置指向未被访问页面的链接的样式，:visited 选择器用于设置指向已被访问的页面的链接，:active 选择器用于活动链接。</p>
+        <p>注释：在 CSS 定义中，:hover 必须位于 :link 和 :visited 之后（如果存在的话），这样样式才能生效。</p>
+    </div>
+</div>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("h2").click(function () {
+            $(".txt").slideUp("slow", function () {
+                $(".txt").slideDown(1000);
+            });
+        });
+    });
+</script>
+</body>
+</html>

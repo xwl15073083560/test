@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网易新用户注册页面</title>
+    <link  rel="stylesheet" href="register.css" />
+</head>
+
+<body>
+<div id="header"><img src="images/register_logo.gif" alt="logo"/></div>
+<div id="main">
+                <form id="registerForm" action="" method="post" name="myform">
+                    <dl>
+                        <dt>通行证用户名：</dt>
+                        <dd><input type="text" id="userName" class="inputs userWidth"/> @163.com</dd>
+                        <dd><div id="userNameId"></div></dd>
+                    </dl>
+                    <dl>
+                        <dt>登录密码：</dt>
+                        <dd><input type="password" id="pwd" class="inputs" required/></dd>
+                        <dd><div id="pwdId"></div></dd>
+                    </dl>
+                    <dl>
+                        <dt>重复登录密码：</dt>
+                        <dd><input type="password" id="repwd" class="inputs" required/></dd>
+                        <dd><div id="repwdId"></div></dd>
+                    </dl>
+                    <dl>
+                        <dt>性别：</dt>
+                        <dd><input name="sex" type="radio" value="" checked="checked"/>男 <input name="sex" type="radio" value="" />女 </dd>
+                    </dl>
+                    <dl>
+                        <dt>真实姓名：</dt>
+                        <dd><input type="text" id="realName" class="inputs" /></dd>
+                    </dl>
+                    <dl>
+                        <dt>昵称：</dt>
+                        <dd><input type="text" id="nickName" class="inputs"/></dd>
+                        <dd><div id="nickNameId"></div></dd>
+                    </dl>
+                    <dl>
+                        <dt>关联手机号：</dt>
+                        <dd><input type="text" id="tel" class="inputs"/></dd>
+                        <dd><div id="telId"></div></dd>
+                    </dl>
+                    <dl>
+                        <dt>保密邮箱：</dt>
+                        <dd><input type="email" id="email" class="inputs"/></dd>
+                        <dd><div id="emailId"></div></dd>
+                    </dl>
+                    <dl>
+                        <dt></dt>
+                        <dd><input name=" " type="image" src="images/button.gif"/></dd>
+                    </dl>
+                </form>
+</div>
+
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#userName").blur(checkUser).focus(checkUserFocus);
+        $("#pwd").blur(checkPwdblur).focus(checkPwdFocus);
+        $("#repwd").blur(checkRepwdBlur).focus(checkRepwdFocus);
+        $("#nickName").blur(checkNickNameBlur).focus(checkNickNameFocus);
+        $("#tel").blur(checkTelBlur).focus(checkTelFocus);
+        $("#email").blur(checkEmailBlur).focus(checkEmailFocus);
+    });
+    $("#registerForm").submit(function () {
+        var s1=checkUser();
+        var s2=checkPwdblur();
+        var s3=checkRepwdBlur();
+        var s4=checkNickNameBlur();
+        var s5=checkTelBlur();
+        var s6=checkEmailBlur();
+        if(s1&&s2&&s3&&s4&&s5&&s6){
+            return true;
+        }
+        return false;
+    });
+    //验证用户名
+    function checkUser(){
+        var user=$("#userName").val();
+        var $div=$("#userNameId");
+        var reg=/^[a-zA-Z0-9][a-zA-Z0-9_.-]{3,17}|^[a-zA-Z0-9_.-]{3,17}[a-zA-Z0-9]$/;
+        if(user==""){
+            $div.html("用户名不能为空");
+            $div.removeClass("ok_prompt");
+            $div.addClass("error_prompt");
+            return false;
+        }
+        if(reg.test(user)==false){
+            $div.html("1、由字母、数字、下划线、点、减号组成\n2、只能以数字、字母开头或结尾，且长度为4-18");
+            $div.removeClass("ok_prompt");
+            $div.addClass("error_prompt");
+            return false;
+        }
+        $div.html("用户名输入正确");
+        $div.removeClass("error_prompt");
+        $div.addClass("ok_prompt");
+        return true;
+    }
+    function checkUserFocus(){
+        var $div=$("#userNameId");
+        $div.html("1、由字母、数字、下划线、点、减号组成\n2、只能以数字、字母开头或结尾，且长度为4-18");
+        $div.removeClass("ok_prompt");
+        $div.addClass("error_prompt");
+    }
+    //验证密码
+    function checkPwdFocus(){
+        var $div=$("#pwdId");
+        $div.html("长度为6-16位");
+        $div.removeClass("ok_prompt");
+        $div.addClass("error_prompt");
+    }
+    function checkPwdblur(){
+        var pwd=$("#pwd").val();
+        var $div=$("#pwdId");
+        var reg=/^.{6,16}$/;
+        if(pwd==""){
+            $div.html("密码不能为空");
+            $div.removeClass("ok_prompt");
+            $div.addClass("error_prompt");
+            return false;
+        }else if(reg.test(pwd)==false){
+            $div.html("长度为6-16位");
+            $div.removeClass("ok_prompt");
+            $div.addClass("error_prompt");
+            return false;
+        }
+        $div.html("密码输入正确");
+        $div.removeClass("error_prompt");
+        $div.addClass("ok_prompt");
+        return true;
+    }
+    //验证2次密码
+    function checkRepwdFocus(){
+        var $div=$("#repwdId");
+        $div.html("2次密码必须一致");
+        $div.removeClass("ok_prompt");
+        $div.addClass("error_prompt");
+    }
+    function checkRepwdBlur(){
+        var pwd=$("#pwd").val();
+        var repwd=$("#repwd").val();
+        var $div=$("#repwdId");
+        if(repwd==""){
+            $div.html("密码不能为空！");
+            $div.removeClass("ok_prompt");
+            $div.addClass("error_prompt");
+            return false;
+        }
+        if(pwd!=repwd){
+            $div.html("2次输入的密码不一致！");
+            $div.removeClass("ok_prompt");
+            $div.addClass("error_prompt");
+            return false;
+        }
+        $div.html("2次输入正确");
+        $div.removeClass("error_prompt");
+        $div.addClass("ok_prompt");
+        return true;
+    }
+    //验证昵称
+    function checkNickNameFocus(){
+        var $div=$("#nickNameId");
+        $div.html("1、由汉子、字母、数字、下划线，以及@、！、#、$、%、&、*等特殊字符组成\n长度为4-20个字符，一个汉字占2个字符");
+        $div.removeClass("ok_prompt");
+        $div.addClass("error_prompt");
+    }
+    function checkNickNameBlur(){
+        var nick=$("#nickName").val();
+        var $div=$("#nickNameId");
+        var reg=/^([\u4e00-\u9fa5]|\w|[@#!$%&*])+$/;
+        var len=nick.replace(/[\u4e00-\u9fa5]/g,"xx").length;
+        if(nick==""){
+            $div.html("昵称不能为空");
+            $div.removeClass("ok_prompt");
+            $div.addClass("error_prompt");
+            return false;
+        }else if(reg.test(nick)==false){
+            $div.html("1、由汉子、字母、数字、下划线，以及@、！、#、$、%、&、*等特殊字符组成");
+            $div.removeClass("ok_prompt");
+            $div.addClass("error_prompt");
+            return false;
+        }else if(len<4||len>20){
+            $div.html("长度为4-20个字符 汉字占2个字符");
+            $div.removeClass("ok_prompt");
+            $div.addClass("error_prompt");
+            return false;
+        }
+        $div.html("昵称输入正确");
+        $div.removeClass("error_prompt");
+        $div.addClass("ok_prompt");
+        return true;
+    }
+    //验证手机号
+    function checkTelFocus(){
+        var $div=$("#telId");
+        $div.html("手机号为11位数字 13 15 18开头");
+        $div.removeClass("ok_prompt");
+        $div.addClass("error_prompt");
+    }
+    function checkTelBlur(){
+        var tel=$("#tel").val();
+        var $div=$("#telId");
+        var reg=/^1[358]\d{9}$/;
+        if(tel==""){
+            $div.html("手机号码不能为空");
+            $div.removeClass("ok_prompt");
+            $div.addClass("error_prompt");
+            return false;
+        }else if(reg.test(tel)==false){
+            $div.html("手机号为11位数字 13 15 18开头");
+            $div.removeClass("ok_prompt");
+            $div.addClass("error_prompt");
+            return false;
+        }
+        $div.html("手机号码输入正确");
+        $div.removeClass("error_prompt");
+        $div.addClass("ok_prompt");
+        return true;
+    }
+    //验证邮箱
+    function checkEmailFocus(){
+        var $div=$("#emailId");
+        $div.html("请输入您常用的电子邮箱");
+        $div.removeClass("ok_prompt");
+        $div.addClass("error_prompt");
+    }
+    function checkEmailBlur(){
+        var email=$("#email").val();
+        var $div=$("#emailId");
+        var reg=/^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/;
+        if(email==""){
+            $div.html("电子邮箱不能为空");
+            $div.removeClass("ok_prompt");
+            $div.addClass("error_prompt");
+            return false;
+        }else if(reg.test(email)==false){
+            $div.html("格式错误 例如web@sina.com.cn或web@tom.com");
+            $div.removeClass("ok_prompt");
+            $div.addClass("error_prompt");
+            return false;
+        }
+        $div.html("电子邮箱输入正确");
+        $div.removeClass("error_prompt");
+        $div.addClass("ok_prompt");
+        return true;
+    }
+</script>
+</body>
+</html>

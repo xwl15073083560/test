@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    function Humans(name){
+        this.name=name;
+    }
+    function Man(){
+        Humans.call(this,"mary");//继承了Humans，同时还传递了参数
+        this.age=38;//实例属性
+    }
+    var man1=new Man();
+    alert(man1.name);//输出mary
+    alert(man1.age);//输出38
+</script>
+</body>
+</html>

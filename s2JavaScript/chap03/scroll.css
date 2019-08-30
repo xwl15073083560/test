@@ -1,0 +1,33 @@
+
+.scroll{width: 360px; height: 190px; overflow: hidden; margin: 0 auto; position: relative;}
+a{
+    font-size: 14px;
+    color: #39F;
+    height: 18px;
+    width: 20px;
+    border: 1px solid #39F;
+    text-decoration: none;
+    display: block;
+    float: left;
+    margin-right:5px;
+    text-align: center;
+    background-color: #FFF;
+    line-height: 20px;
+}
+a:hover {
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFF;
+    background-color: #39F;
+    border: 1px solid #39F;
+    text-decoration: none;
+    display: block;
+}
+#num {
+    position:absolute;
+    width:180px;
+    height:25px;
+    z-index:2;
+    left:100px;
+    top: 13px;
+}

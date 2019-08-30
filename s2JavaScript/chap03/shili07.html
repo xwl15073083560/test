@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #cartList{display: none}
+        #shopping .cartOver{
+            background-color:#ffffff;
+            z-index:100;
+            border-bottom: none;
+        }
+        #shopping .cartListOver{
+            display: block;
+            position: relative;
+            top: -1px;
+        }
+        #shopping .cartOut{
+            background-color: #f9f9f9;
+            border-bottom: solid 1px #dcdcdc;
+        }
+        #shopping .cartListOut{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<section id="shopping">
+    <div id="cart" onmouseover="over()" onmouseout="out()">我的购物车 <span>1</span></div>
+    <div id="cartList">
+        <h2>最新加入的商品</h2>
+        <ul>
+            <li><img src="image/1.gif" alt=""/></li>
+            <li>倩碧经典三部曲套装()</li>
+            <li>$558.00X1 <br/>删除</li>
+        </ul>
+        <div class="footer">
+            共一件商品 <span>共计558.00</span>
+            <span>去购物车</span>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+//    //初始状态下，cartList层被隐藏
+//    document.getElementById("cartList").style.display="none";
+//    function over(){
+//        document.getElementById("cart").style.backgroundColor="#ffffff";
+//        document.getElementById("cart").style.zIndex="100";
+//        document.getElementById("cart").style.borderBottom="none";
+//        document.getElementById("cartList").style.display="block";
+//        document.getElementById("cartList").style.position="relative";
+//        document.getElementById("cartList").style.top="-1px";
+//    }
+//    function out(){
+//        document.getElementById("cart").style.backgroundColor="#f9f9f9";
+//        document.getElementById("cart").style.borderBottom="solid 1px #dcdcdc";
+//        document.getElementById("cartList").style.display="none";
+//    }
+    function over(){
+        document.getElementById("cart").className="cartOver";
+        document.getElementById("cartList").className="cartListOver";
+        var cartList=document.getElementById("cartList");
+        alert(document.defaultView.getComputedStyle(cartList,null).display);
+    }
+    function out(){
+        document.getElementById("cart").className="cartOut";
+        document.getElementById("cartList").className="cartListOut";
+    }
+</script>
+</body>
+</html>

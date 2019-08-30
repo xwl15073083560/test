@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>使用继承</title>
+</head>
+<body>
+<div id="1"></div>
+<script type="text/javascript">
+    var div=document.getElementById("1");
+    function Animal(name,age,color){
+        this.name=name;
+        this.age=age;
+        this.color=color;
+    }
+    function Poultry(name,age,color,leg){
+        Animal.call(this,name,age,color);
+        this.leg=leg;
+    }
+    Poultry.prototype.info=function(){
+        var p=document.createElement("p");
+        var str="我是一个"+this.color+"的"+this.name+",我已经"+this.age+"岁了，我有"+this.leg+"条腿";
+        p.innerHTML=str;
+        div.appendChild(p);
+    };
+    var a1=new Poultry("小狗狗",1,"灰色",4);
+    var a2=new Poultry("茶杯猫",2,"白色",4);
+    var a3=new Poultry("母鸡",1,"红色",2);
+    a1.info();
+    a2.info();
+    a3.info();
+</script>
+</body>
+</html>

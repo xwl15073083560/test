@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>构造函数</title>
+</head>
+<body>
+<script type="text/javascript">
+    function Flower(name,genera,area,uses){
+        this.name=name;
+        this.genera=genera;
+        this.area=area;
+        this.uses=uses;
+        this.showName=showName;
+    }
+    function showName(){
+        alert(this.name);
+    }
+    var flower1=new Flower("长春花","夹竹桃科","非洲","观赏");
+    var flower2=new Flower("牡丹","芍药科","中国","食用");
+    var flower3=new Flower("曼陀罗花","茄科","印度","药用");
+    flower1.showName();
+    flower2.showName();
+    flower3.showName();
+    alert(flower1 instanceof Object);
+    alert(flower1 instanceof Flower);
+    alert(flower2 instanceof Object);
+    alert(flower2 instanceof Flower);
+    alert(flower3 instanceof Object);
+    alert(flower3 instanceof Flower);
+
+    alert(flower1.constructor==Flower);
+    alert(flower2.constructor==Flower);
+    alert(flower3.constructor==Flower);
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>问答特效</title>
+    <style type="text/css">
+        h2{padding:5px;}
+        p{display: none;}
+    </style>
+</head>
+<body>
+<h2>什么是受益人？</h2>
+<p>
+    <strong>解答：</strong>
+    受益人是指人身保险中由被保险人或者投保人指定的
+    享有保险金请求权的人
+</p>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("h2").click(function () {//单击h2标题，增加背景颜色和p显示标签
+            $("h2").css("background-color","#ccffff").next().css("display","block");//next()方法作用是：获得所匹配元素集合中每个元素其后紧邻的同辈元素
+        });
+    });
+</script>
+</body>
+</html>

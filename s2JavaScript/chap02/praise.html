@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    var preUrl=document.referrer;//载入本页面文档的地址
+    if(preUrl==""){
+        document.write("<h2>您不是从领奖页面进入，五秒后将自动跳转到登录页面</h2>");
+        setTimeout("location.href='login.html'",5000);//使用setTimeout延迟五秒后自动跳转
+    }else{
+        document.write("<h2>大奖赶快拿啦！笔记本！数码相机！</h2>");
+    }
+</script>
+</body>
+</html>

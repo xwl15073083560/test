@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    function Humans(name){
+        this.name=name;
+        this.clothing=["t","d","j"];
+    }
+    Humans.prototype.sayName= function () {
+        alert(this.name);
+    };
+    function Man(name,age){
+        Humans.call(this,name);//继承属性
+        this.age=age;
+    }
+    Man.prototype=new Humans();//继承方法
+    Man.prototype.sayAge= function () {
+        alert(this.age);
+    };
+    var man1=new Man("mary",38);
+    man1.clothing.push("c");
+    alert(man1.clothing);//输出t d j c
+    man1.sayName(); //输出mary
+    man1.sayAge();//输出38
+
+    var man2=new Man("tom",26);
+    alert(man2.clothing);//输出t d j
+    man2.sayName();//输出tom
+    man2.sayAge();//输出26
+</script>
+</body>
+</html>

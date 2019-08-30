@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>创建对象</title>
+</head>
+<body>
+<script type="text/javascript">
+    var flower=new Object();
+    flower.name="长春花";
+    flower.genera="夹竹桃科 长春花属";
+    flower.area="非洲、亚热带";
+    flower.users="观赏或用药等";
+    flower.showName= function () {
+        alert(this.genera);
+    };
+    flower.showName();
+</script>
+</body>
+</html>

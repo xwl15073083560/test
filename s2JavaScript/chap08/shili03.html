@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        span{float:right;}
+        h1{background-color: blue;}
+        .img{float:right;}
+        section{overflow: hidden;}
+        h1,div,ul,li{margin:0 auto;}
+        ul{background-color: blue;}
+    </style>
+</head>
+<body>
+<section>
+    <span>X</span>
+    <h1 >常见问题</h1>
+    <div class="proList"></div>
+    <div class="img"><img src="images/tou01.jpg" alt=""/></div>
+</section>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("h1").click(function () {
+            var str="<ul><li>买了商品查不到物流信息怎么办？</li><li>申请退款后，交易退款成功，钱到哪里？</li><li>卖家拒绝退款，怎么办？</li><li>投诉发生的时间和条件是什么？</li><li>如何申请淘宝客服介入？</li></ul>";
+//            $(".proList").html(str);
+            $(".proList").text(str);
+        });
+        $("span").click(function () {
+//            $(".proList").html("");
+            $(".proList").text("");
+        });
+    });
+</script>
+</body>
+</html>

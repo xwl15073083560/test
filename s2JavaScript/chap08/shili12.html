@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<div id="adver" style="display: inline-block;width: 322px;height: 217px;top:10px;left:10px;">
+    <img src="images/adv.jpg" alt=""/>
+</div>
+<div id="main">
+    <img src="images/main1.JPG" alt=""/>
+    <img src="images/main2.JPG" alt=""/>
+    <img src="images/main3.JPG" alt=""/>
+</div>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var adverTop=parseInt($("#adver").css("top"));
+        var adverLeft=parseInt($("#adver").css("left"));
+        //alert(adverLeft);
+        $(window).scroll(function () {
+            var scrollTop=parseInt($(this).scrollTop());//获取滚动条滚下去的距离
+            var scrollLeft=parseInt($(this).scrollLeft());//获取滚动条滚向右的距离
+            $("#adver").offset({top:scrollTop+adverTop});
+            $("#adver").offset({left:scrollLeft+adverLeft});
+            //alert(scrollTop);
+            //alert(adverTop);
+
+        });
+    });
+</script>
+</body>
+</html>

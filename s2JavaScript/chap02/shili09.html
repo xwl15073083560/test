@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="myclock"></div>
+<input type="button" onclick="javascript:clearInterval(myTime)" value="停止"/>
+<script type="text/javascript">
+    function disptime(){
+        var today=new Date();
+        var hh=today.getHours();
+        var mm=today.getMinutes();
+        var ss=today.getSeconds();
+        /*设置div的内容为当前时间*/
+        document.getElementById("myclock").innerHTML="现在是:"+hh+":"+mm+":"+ss;
+    }
+    /*使用setInterval()每间隔指定毫秒后调用disptime()*/
+    var myTime=setInterval("disptime()",1000);
+</script>
+</body>
+</html>

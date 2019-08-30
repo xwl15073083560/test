@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body onload="s1(prompt('请输入正确的邮箱地址','susan@sohu.com'))">
+<script type="text/javascript">
+    function s1(op1){
+        if(op1.trim().length==0){
+            alert("邮箱不能为空！");
+        }else if(op1.indexOf("@")==-1||op1.indexOf(".")==-1){
+            alert("邮箱地址必须包含@和.");
+        }else{
+            var i=op1.substring(0,op1.indexOf("@"));
+            alert("邮箱地址正确，邮箱名称是："+i);
+        }
+    }
+</script>
+</body>
+</html>

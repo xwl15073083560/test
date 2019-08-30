@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<section id="taskList">
+    <ul id="nav">
+        <li>日常任务</li>
+        <li>成长任务</li>
+    </ul>
+    <div class="taskContent">
+        <ul id="dayTask">
+            <li>
+                <div>
+                    <h1>交口称赞</h1>
+                    <p>为喜欢的回答送出一个赞</p>
+                    <p>奖励： <span>财富值X10</span><span>经验之石X1</span></p>
+                </div>
+                <div>
+                    <input type="button" value="前往"/>
+                </div>
+            </li>
+        </ul>
+        <ul id="growTask">
+            <li>
+                <div>
+                    <h1>成长之路</h1>
+                    <p>知道等级达到2级</p>
+                    <p>奖励： <span>财富值X20</span><span>铜宝箱X1</span><span>准备入学徽章X1</span></p>
+                </div>
+                <div>
+                    <input type="button" value="前往"/>
+                </div>
+            </li>
+            <li>
+                <div></div>
+                <div><input type="button" id="del" value="解除绑定"/></div>
+            </li>
+        </ul>
+    </div>
+</section>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#nav li:first").bind("click",bg1= function () {
+            $(".taskContent").css("background","#26a6e3");
+        }).bind("click",content1= function () {
+            $("#dayTask").show();
+            $("#growTask").hide();
+        });
+        $("#nav li:last").bind("click",bg2= function () {
+            $(".taskContent").css("background","#ff9400");
+        }).bind("click",content2= function () {
+            $("#dayTask").hide();
+            $("#growTask").show();
+        });
+        $("#del").click(function () {
+            $("#nav li:first").unbind("click",content1);//unbind括号不带参数代表移除当前元素所有事件
+        });
+    });
+</script>
+</body>
+</html>

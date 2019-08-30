@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> 广告图片轮播切换</title>
+    <link rel="stylesheet" href="style.css">
+    <style type="text/css">
+        .s1{background:url("")}
+    </style>}
+</head>
+<body>
+<div class="adver">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <div class="arrowLeft"><</div><div class="arrowRight">></div>
+</div>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    var images=["images/adver01.jpg","images/adver02.jpg","images/adver03.jpg","images/adver04.jpg","images/adver05.jpg","images/adver06.jpg"];
+    $(document).ready(function () {
+        var index=0;//默认图片下标为0
+        $(".adver").mouseover(function () {//鼠标移入显示左右侧图标
+            $(".arrowLeft,.arrowRight").show();
+        }).mouseout(function () {//鼠标离开显隐藏左右侧图标
+            $(".arrowLeft,.arrowRight").hide();
+        });
+        $(".arrowLeft").click(function () {//点击左侧事件
+            index--;
+            if(index<0){
+                //index=5;
+                alert("这是第一张图片了");
+                index++;
+                return;
+            }
+            var num=index+1;
+            $(".adver").css("background","url("+images[index]+")");
+            $("li:nth-of-type("+num+")").css("background","orange").siblings().css("background","#333333");
+           // $("li:nth-of-type("+num+")").css("background","orange");
+        });
+        $(".arrowRight").click(function () {//点击右侧事件
+            index++;
+            if(index>5){
+                //index=0;
+                alert("已经是最后一张图片了");
+                index--;
+                return;
+            }
+            var num2=index+1;
+            $(".adver").css("background","url("+images[index]+")");
+            $("li:nth-of-type("+num2+")").css("background","orange").siblings().css("background","#333333");
+            //$("li:nth-of-type("+num2+")").css("background","orange");
+        });
+
+    });
+</script>
+</body>
+</html>

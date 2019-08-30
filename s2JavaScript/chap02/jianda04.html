@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>根据当前时间显示问候语</title>
+</head>
+<body>
+<div>
+    <h2 id="yi"></h2>
+    <h2 id="er"></h2>
+    <h2 id="san"></h2>
+</div>
+<script type="text/javascript">
+    var today=new Date();
+    var year=today.getFullYear();
+    var month=today.getMonth()+1;
+    var day=today.getDate();
+    var hour=today.getHours();
+    var mm=today.getMinutes();
+    var apm="";
+    if(hour<=12){
+        apm="上午好！";
+    }else if(hour>12&&hour<=18){
+        apm="下午好！";
+    }else{
+        apm="晚上好！";
+    }
+    document.getElementById("yi").innerHTML="今天日期："+year+"年"+month+"月"+day+"日";
+    document.getElementById("er").innerHTML="现在时间："+hour+"点"+mm+"分";
+    document.getElementById("san").innerHTML=apm+"欢迎来到贵美";
+</script>
+</body>
+</html>

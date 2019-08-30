@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>创建两个Person对象并画原型链图</title>
+</head>
+<body>
+<div id="1"></div>
+<script type="text/javascript">
+    function Person(nation,skinColor){
+        this.nation=nation;
+        this.skinColor=skinColor;
+    }
+    Person.prototype.returnNation=function(){
+        return this.nation;
+    };
+    Person.prototype.returnColor= function () {
+        return this.skinColor;
+    };
+    function Women(nation,skinColor,sex){
+        Person.call(this,nation,skinColor);
+        this.sex=sex;
+    }
+    Women.prototype=new Person();
+    Women.prototype.returnSex=function(){
+        return this.sex;
+    };
+    var div=document.getElementById("1");
+    var women1=new Women("汉族","黄色","女");
+    div.innerHTML="民族："+women1.returnNation()+"<br/>肤色："+women1.returnColor()+"<br/>性别："+women1.returnSex();
+</script>
+</body>
+</html>

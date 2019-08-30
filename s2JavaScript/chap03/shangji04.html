@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>带关闭按钮的滚动广告</title>
+    <style type="text/css">
+        #main{ text-align:center;}
+        #float{
+            position:absolute;
+            left:30px;
+            top:60px;
+            z-index:1;
+        }
+        #close{
+            position:absolute;
+            top:60px;
+            left:134px;
+            z-index:2;
+            cursor:hand;
+        }
+    </style>
+</head>
+<body>
+<div id="close" onClick="adv_close()"><img src="image/close.jpg"></div>
+<div id="float"><img src="image/advpic.jpg"></div>
+<div id="main"><img src="image/contentpic.jpg"></div>
+<script type="text/javascript">
+    function adv_close(){
+        document.getElementById("close").firstElementChild.style.display="none";
+        document.getElementById("float").firstElementChild.style.display="none";
+    }
+    var adverTop;
+    var adverLeft;
+    var adverObj=document.getElementById("float");
+    var adverTop1;
+    var adverLeft1;
+    var adverObj1=document.getElementById("close");
+    function init() {
+        if(adverObj.currentStyle){
+            adverTop=parseInt(adverObj.currentStyle.top);
+            adverLeft=parseInt(adverObj.currentStyle.left);
+            adverTop1=parseInt(adverObj1.currentStyle.top);
+            adverLeft1=parseInt(adverObj1.currentStyle.left);
+        }else {
+            adverTop=parseInt(document.defaultView.getComputedStyle(adverObj,null).top);
+            adverLeft=parseInt(document.defaultView.getComputedStyle(adverObj,null).left);
+            adverTop1=parseInt(document.defaultView.getComputedStyle(adverObj1,null).top);
+            adverLeft1=parseInt(document.defaultView.getComputedStyle(adverObj1,null).left);
+        }
+    }
+    function move() {
+        var sTop=parseInt(document.documentElement.scrollTop|| document.body.scrollTop);
+        var sLeft=parseInt(document.documentElement.scrollLeft|| document.body.scrollLeft);
+        adverObj.style.top=adverTop+sTop+"px";
+        adverObj.style.left=adverLeft+sLeft+"px";
+        var sTop=parseInt(document.documentElement.scrollTop|| document.body.scrollTop);
+        var sLeft=parseInt(document.documentElement.scrollLeft|| document.body.scrollLeft);
+        adverObj1.style.top=adverTop1+sTop+"px";
+        adverObj1.style.left=adverLeft1+sLeft+"px";
+    }
+    window.onload=init;
+    window.onscroll=move;
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="adver"><img src="image/advpic.jpg" alt=""/></div>
+<div id="main">
+    <img src="image/3.jpg" alt=""/>
+    <img src="image/2.gif" alt=""/>
+    <img src="image/4.jpg" alt=""/>
+</div>
+<script type="text/javascript">
+    var adverTop;//层距页面顶端距离
+    var adverLefr;
+    var adverObj;//层对象
+    function inix(){
+        adverObj=document.getElementById("adver");//获得层对象
+        if(adverObj.currentStyle){
+            adverTop=parseInt(adverObj.currentStyle.top);
+            adverLefr=parseInt(adverObj.currentStyle.left);
+        }else{
+            adverTop=parseInt(document.defaultView.getComputedStyle(adverObj,null).top);
+            adverLefr=parseInt(document.defaultView.getComputedStyle(adverObj,null).left);
+        }
+    }
+    function move(){
+        var sTop=parseInt(document.documentElement.scrollTop||document.body.scrollTop);
+        var sLeft=parseInt(document.documentElement.scrollLeft||document.body.scrollLeft);
+        adverObj.style.top=adverTop+sTop+"px";
+        adverObj.style.left=adverLefr+sLeft+"px";
+    }
+    window.onload=inix();
+    window.onscroll=move();
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>window对象操作窗口</title>
+    <style type="text/css">
+        body,ul,li,div,p,h1,h2{margin:0;padding:0}
+        .content{width: 746px;margin:0 auto;}
+    </style>
+</head>
+<body onload="open_adv();">
+<div class="content">
+    <div>
+        <img src="image/dd_logo.jpg" alt=""/><span onclick="close_plan()">关闭</span>
+    </div>
+    <img src="image/shoppingBg.jpg" alt=""/>
+</div>
+<script type="text/javascript">
+    //弹出窗口
+    function open_adv(){
+        window.open("adv.html");
+    }
+    //关闭窗口
+    function close_plan(){
+        window.close();
+    }
+</script>
+</body>
+</html>

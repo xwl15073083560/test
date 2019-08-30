@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        input:nth-of-type(1){border:1px solid red;border-radius: 50px 0 0 50px;}
+        input:nth-of-type(2){background-color: gray;border-radius: 0 50px 50px 0;border:none;}
+    </style>
+</head>
+<body>
+<input type="text" class="search_txt" value="电风扇" id="searchtxt"/>
+<input type="button" class="search_btn" value="搜索"/>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#searchtxt").focus(function () {//搜索框获得鼠标焦点
+            var txt_value=$(this).val();//得到当前文本框的值
+            if(txt_value=="电风扇"){
+                $(this).val("");//如果符合条件，则清空文本框的内容
+            }
+        }).blur(function () {//搜索框失去鼠标焦点
+            var txt_value=$(this).val();//得到当前文本框的值
+            if(txt_value==""){
+                $(this).val("电风扇");//如果符合条件 则设置内容
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

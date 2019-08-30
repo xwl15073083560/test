@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+<title>百度注册页面</title>
+	<link href="reg.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="register">
+	<div class="center"><img src="images/header1.jpg" /></div>
+  <form action="success.html" method="post" id="myform">
+	  <dl>
+		  <dt>用户名：</dt>
+		  <dd><input id="user" type="text"  class="inputs"/><div id="userId"></div></dd>
+	  </dl>
+	  <dl>
+		  <dt>密码：</dt>
+		  <dd><input id="pwd" type="password"  class="inputs"/><div id="pwdId"></div></dd>
+	  </dl>
+	  <dl>
+		  <dt>确认密码：</dt>
+		  <dd><input id="repwd" type="password"  class="inputs"/><div id="repwdId"></div></dd>
+	  </dl>
+	  <dl>
+		  <dt>性别：</dt>
+		  <dd><input name="sex" type="radio" value="男" />男 <input name="sex" type="radio" value="女" />女
+			  <div id="sexId"></div></dd>
+	  </dl>
+	  <dl>
+		  <dt>电子邮件：</dt>
+		  <dd><input id="email" type="text"  class="inputs"/><div id="emailId"></div></dd>
+	  </dl>
+	  <dl>
+		  <dt>出生日期：</dt>
+		  <dd><select id="year">
+			  <script>
+				  for(var i=1900;i<=2015;i++){
+					  document.write("<option value="+i+">"+i+"</option>");
+				  }
+			  </script>
+		  </select>年
+			  <select id="month">
+				  <script>
+					  for(var i=1;i<=12;i++){
+						  document.write("<option value="+i+">"+i+"</option>");
+					  }
+				  </script>
+			  </select>月
+			  <select id="day">
+				  <script>
+					  for(var i=1;i<=31;i++){
+						  document.write("<option value="+i+">"+i+"</option>");
+					  }
+				  </script>
+			  </select>日</dd>
+	  </dl>
+	  <dl>
+		  <dt>&nbsp;</dt>
+		  <dd><input name="sub" type="submit" value="注册" class="btn" id="1"/> <input name="cancel" type="reset" value="清除"  class="btn"/></dd>
+	  </dl>
+  </form>
+</div>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+	$(function () {
+		//验证用户名
+		$("#user").blur(checkUser);
+		//验证密码
+		$("#pwd").blur(checkPwd);
+		//验证2次密码
+		$("#repwd").blur(checkRepwd);
+		//验证邮箱
+		$("#email").blur(checkMail);
+	});
+	$("#myform").submit(function () {
+		var mail=checkMail();
+		var pwd=checkPwd();
+		var repwd=checkRepwd();
+		var sex=checkSex();
+		var user=checkUser();
+		if(mail==true&&repwd==true&&pwd==true&&sex==true&&user==true)
+		{
+			return true;
+		}
+		else{
+			return false;
+		}
+	});
+	function checkUser(){
+		var user=$("#user").val();
+		var $div=$("#user").next();
+		var reg=/^[a-zA-Z0-9_]{4,12}$/;
+		if(reg.test(user)==false){
+			$div.html("用户名必须由字母 数字和下划线组成");
+			return false;
+		}
+		$div.html("");
+		return true;
+	}
+	function checkPwd(){
+		var pwd=$("#pwd").val();
+		var $div=$("#pwd").next();
+		var reg=/^\w{6,12}$/;
+		if(reg.test(pwd)==false){
+			$div.html("密码长度为在6-12字符");
+			return false;
+		}
+		$div.html("");
+		return true;
+	}
+	function checkRepwd(){
+		var repwd=$("#repwd").val();
+		var $div=$("#repwd").next();
+		var reg=/^\w{6,12}$/;
+		if(reg.test(repwd)==false){
+			$div.html("密码长度为在6-12字符");
+			return false;
+		}
+		if(repwd!=$("#pwd").val()){
+			$div.html("2次密码不匹配");
+			return false;
+		}
+		$div.html("");
+		return true;
+	}
+	function checkSex(){
+		var val=$("#myform :radio:checked").val();
+		var $div=$("#sexId");
+		if(val==null){
+			$div.html("请选择性别");
+			return false;
+		}
+		$div.html("");
+		return true;
+	}
+	function checkMail(){
+		var mail=$("#email").val();
+		var $div=$("#email").next();
+		var reg=/^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/;
+		if(mail.length==0){
+			$div.html("电子邮件地址不能为空");
+			return false;
+		}
+		if(reg.test(mail)==false){
+			$div.html("电子邮件格式不正确");
+			return false;
+		}
+		$div.html("");
+		return true;
+	}
+</script>
+</body>
+</html>

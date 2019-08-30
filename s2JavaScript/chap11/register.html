@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<title>蔚蓝网注册页面</title>
+    <link href="global.css" rel="stylesheet" />
+    <link href="layout.css" rel="stylesheet" />
+    <link href="template.css" rel="stylesheet" />
+    <style type="text/css">
+        span{color:deepskyblue; margin-left: 5px;;}
+    </style>
+</head>
+
+<body>
+<header class="header_middle">
+    <div id="register_header">
+        <div class="register_header_left"><img src="images/logo.png" alt="logo"/></div>
+        <div class="register_header_right"><a href="index.html" class="blue">首页</a> | <a href="product.html" class="blue">商品展示页</a>  | <a href="shopping.html" class="blue">购物车</a> |  <a href="login.html" class="blue">登录</a></div>
+    </div>
+</header>
+<section id="main">
+    <div class="register_content">
+        <div class="register_mid_bg">用户注册</div>
+        <div class="register_message">
+            <form action="" method="post" id="myform">
+                <dl class="register_row">
+                    <dt>Email地址：</dt>
+                    <dd><input id="email" type="email" required="required" class="register_input" pattern="\w+@\w+(\.[a-zA-Z]{2,3}){1,2}"/><span></span></dd>
+                </dl>
+                <dl class="register_row">
+                    <dt>设置昵称：</dt>
+                    <dd><input id="nickName" type="text" class="register_input"  required="required" pattern="[a-zA-Z0-9]{4,20}"/><span></span></dd>
+                </dl>
+                <dl class="register_row">
+                    <dt>设定密码：</dt>
+                    <dd><input id="pwd" type="password" class="register_input" required="required"  pattern="[a-zA-Z0-9]{6,20}"/><span></span></dd>
+                </dl>
+                <dl class="register_row">
+                    <dt>再输入一次密码：</dt>
+                    <dd><input id="repwd" type="password" class="register_input" required="required"/><span></span></dd>
+                </dl>
+                <dl class="register_row">
+                    <dt>性别：</dt>
+                    <dd><input name="sex" id="man" type="radio" value="男" checked="checked"/> <label for="man">男</label></dd>
+                    <dd> <input name="sex" id="woman" type="radio" value="女"/> <label for="woman">女</label></dd>
+                </dl>
+                <dl class="register_row">
+                    <dt>所在地区：</dt>
+                    <dd>
+                        <select id="province" style="width:120px;">
+                            <option>请选择省/城市</option>
+                        </select>
+                    </dd>
+                    <dd>
+                        <select id="city"  style="width:130px;">
+                            <option>请选择城市/地区</option>
+                        </select>
+                    </dd>
+                </dl>
+                <div class="registerBtn"><input id="registerBtn" type="image" src="images/register_btn_out.gif"/></div>
+            </form>
+        </div>
+    </div>
+</section>
+<!--网站版权部分开始-->
+<footer id="footer">
+    <div class="footer_top"><a href="#" target="_parent" class="footer_dull_red">正版保障</a> | <a href="#" target="_parent" class="footer_dull_red">满额免运</a> | <a href="#" target="_parent" class="footer_dull_red">货到付款</a> | <a href="#" target="_parent" class="footer_dull_red">品种最全</a> | <a href="#" target="_parent" class="footer_dull_red">免费退换</a></div>
+    <div class="footer_end">Copyright (C) 蔚蓝网 2006-2016, All Rights Reserved  <img src="images/validate.gif"  alt="版权" style="vertical-align:middle;" /> 京ICP证100488号 出版物经营许可证 京批100160号</div>
+</footer>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#registerBtn").click(function () {
+            var e=emai();
+            var n=nick();
+            var p=pwd();
+            var r=rpwd();
+            if(e==true&&n==true&&p==true&&r==true){
+                return true;
+            }
+            return false;
+        });
+        $("#email").blur(function () {
+            emai();
+        });
+        $("#nickName").blur(function () {
+            nick();
+        });
+        $("#pwd").blur(function () {
+            pwd();
+        });
+        $("#repwd").blur(function () {
+            rpwd();
+        });
+
+        xiala();
+        $("#province").change(function () {
+            diqu();
+        });
+    });
+
+    function emai(){
+        var $email=$("#email");
+        var eval=$email.val();
+        var $div=$email.next();
+        var reg=/^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/;
+        if(eval==""){
+            $div.html("email不能为空");
+            return false;
+        }else if(reg.test(eval)==false){
+            $div.html("email格式错误");
+            return false;
+        }
+        $div.html("");
+        return true;
+    }
+    function nick(){
+        var reg=/^[a-zA-Z0-9]{4,20}$/;
+        var $email=$("#nickName");
+        var eval=$email.val();
+        var $div=$email.next();
+        if(eval==""){
+            $div.html("昵称不能为空");
+            return false;
+        }else if(reg.test(eval)==false){
+            $div.html("昵称格式错误");
+            return false;
+        }
+        $div.html("");
+        return true;
+    }
+    function pwd(){
+        var reg=/^[a-zA-Z0-9]{6,20}$/;
+        var $email=$("#pwd");
+        var eval=$email.val();
+        var $div=$email.next();
+        if(eval==""){
+            $div.html("密码不能为空");
+            return false;
+        }else if(reg.test(eval)==false){
+            $div.html("密码格式错误");
+            return false;
+        }
+        $div.html("");
+        return true;
+    }
+    function rpwd(){
+        var $email=$("#repwd");
+        var email1=$("#pwd").val();
+        var eval=$email.val();
+        var $div=$email.next();
+        if(eval==""){
+            $div.html("密码不能为空");
+            return false;
+        }else if(email1!=eval){
+            $div.html("2次密码不一致");
+            return false;
+        }
+        $div.html("");
+        return true;
+    }
+    //下拉框级联
+    function xiala(){
+        var chengArr=[];
+        var $chengshi=$("#province");//城市
+        chengArr[0]="湖南省";
+        chengArr[1]="湖北省";
+        chengArr[2]="广东省";
+        chengArr[3]="广西省";
+        chengArr[4]="北京市";
+        chengArr[5]="四川省";
+        for(var i in chengArr){
+            var $fuop=$("<option></option>");
+            $fuop.html(chengArr[i]);
+            $chengshi.append($fuop);
+        }
+
+
+    }
+
+    function diqu(){
+        var $diqu=$("#city");//地区
+        $("#city option:gt(0)").remove();
+        switch ($("#province").val()){
+            case "湖南省":
+                var hunanArr=["岳阳市","长沙市","湘潭市"];
+                for(var j=0;j<hunanArr.length;j++){
+                    var $op=$("<option></option>");
+                    $op.html(hunanArr[j]);
+                    $diqu.append($op);
+                }
+                break;
+            case "湖北省":
+                var hubeiArr=["武汉市","荆州市","襄阳市"];
+                for(var j1=0;j1<hubeiArr.length;j1++){
+                    var $op1=$("<option></option>");
+                    $op1.html(hubeiArr[j1]);
+                    $diqu.append($op1);
+                }
+                break;
+            case "广东省":
+                var gdArr=["广州市","珠海市","中山市","佛山市"];
+                for(var j2=0;j2<gdArr.length;j2++){
+                    var $op2=$("<option></option>");
+                    $op2.html(gdArr[j2]);
+                    $diqu.append($op2);
+                }
+                break;
+            case "广西省":
+                var gxArr=["南宁","桂林市","柳州市","梧州市"];
+                for(var j3=0;j3<gxArr.length;j3++){
+                    var $op3=$("<option></option>");
+                    $op3.html(gxArr[j3]);
+                    $diqu.append($op3);
+                }
+                break;
+            case "北京市":
+                var bjArr=["东城区","朝阳区"];
+                for(var j4=0;j4<bjArr.length;j4++){
+                    var $op4=$("<option></option>");
+                    $op4.html(bjArr[j4]);
+                    $diqu.append($op4);
+                }
+                break;
+            case "四川省":
+                var scArr=["成都","泸州市","汶川"];
+                for(var j5=0;j5<scArr.length;j5++){
+                    var $op5=$("<option></option>");
+                    $op5.html(scArr[j5]);
+                    $diqu.append($op5);
+                }
+                break;
+        }
+
+    }
+
+
+</script>
+</body>
+</html>

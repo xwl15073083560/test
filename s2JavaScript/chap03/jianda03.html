@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图片轮换</title>
+    <link rel="stylesheet" href="scroll.css">
+
+</head>
+
+<body>
+<div class="scroll">
+    <img src="image/1.gif" alt="图片" id="photo"/>
+    <div id="num">
+        <a href="#" onclick="s1(1)">1</a>
+        <a href="#" onclick="s1(2)">2</a>
+        <a href="#" onclick="s1(3)">3</a>
+        <a href="#" onclick="s1(4)">4</a>
+        <a href="#" onclick="s1(5)">5</a>
+    </div>
+</div>
+<script type="text/javascript">
+    function s1(op){
+        if(op==1||op==2||op==5){
+            var po=document.getElementById("photo");
+            po.setAttribute("src","image/"+op+".gif");
+        }else{
+            var po1=document.getElementById("photo");
+            po1.setAttribute("src","image/"+op+".jpg");
+        }
+
+    }
+</script>
+</body>
+</html>

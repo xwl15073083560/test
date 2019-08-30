@@ -1,0 +1,71 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>制作注册验证</title>
+    <link href="reg6.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="main"><img src="images/top5.jpg"  alt="top"/>
+    <form action="" method="post" id="myform">
+        <dl>
+            <dt class="left">用户名：</dt>
+            <dd><input id="user" type="text" class="inputs" onblur="checkUser()" onfocus="showUser()" /><div id="user_prompt" class="prompt"></div></dd>
+        </dl>
+        <dl>
+            <dt class="left">密码：</dt>
+            <dd><input id="pwd" type="password"  class="inputs" onblur="checkPwd()" onfocus="showPwd()" /><div id="pwd_prompt" class="prompt"></div></dd>
+        </dl>
+        <dl>
+            <dt class="left">&nbsp;</dt>
+            <dd><input name="" type="image" src="images/sumbit_btn.jpg" /></dd>
+        </dl>
+    </form>
+</div>
+
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("")
+    });
+    $("#myform").submit(function () {
+        var f1=checkUser();
+        var f2=checkPwd();
+        if(f1==true&&f2==true){
+            return true;
+        }
+        return false;
+    });
+    function showUser(){
+        $("#user_prompt").html("首位为字母的4-16个数字、字母、下划线");
+    }
+    function checkUser(){
+        var u=$("#user").val();
+        var $div=$("#user_prompt");
+        var reg=/^[a-zA-Z]\w{3,15}$/;
+        if(reg.test(u)==false){
+            $div.html("用户名不正确");
+            return false;
+        }
+        $div.html("");
+        return true;
+    }
+    function showPwd(){
+        $("#pwd_prompt").html("4-10个字母和下划线");
+    }
+    function checkPwd(){
+        var p=$("#pwd").val();
+        var $div=$("#pwd_prompt");
+        var reg=/^[a-zA-Z_]{4,10}$/;
+        if(reg.test(p)==false){
+            $div.html("密码格式错误");
+            return false;
+        }
+        $div.html("");
+        return true;
+    }
+</script>
+</body>
+</html>

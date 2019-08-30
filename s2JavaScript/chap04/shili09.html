@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    function Humans(){
+        this.clothing=["t","d","j"];
+    }
+    function Man(){
+        Humans.call(this);//继承了Humans
+    }
+    var man1=new Man();
+    man1.clothing.push("c");
+    alert(man1.clothing);
+    var man2=new Man();
+    alert(man2.clothing);
+</script>
+</body>
+</html>

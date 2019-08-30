@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #divCode,#divMobile{display: inline;}
+    </style>
+</head>
+<body>
+<ul>
+    <li>邮政编码：<input type="text" id="code"/><div id="divCode"></div></li>
+    <li>手机号码：<input type="text" id="mobile"/><div id="divMobile"></div></li>
+</ul>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#code").blur(function () {
+            var code=$(this).val();
+            var $codeId=$("#divCode");
+            var regCode=/^\d{6}$/;
+            if(regCode.test(code)==false){
+                $codeId.html("邮政编码不正确 请重新输入");
+                return false;
+            }
+            $codeId.html("");
+            return true;
+        });
+        $("#mobile").blur(function () {
+            var mobile=$(this).val();
+            var $mobileDiv=$("#divMobile");
+            var regMobile=/^1\d{10}$/;
+            if(regMobile.test(mobile)==false){
+                $mobileDiv.html("手机号码不正确 请重新输入")
+                return false;
+            }
+            $mobileDiv.html("");
+            return true;
+        });
+    });
+</script>
+</body>
+</html>

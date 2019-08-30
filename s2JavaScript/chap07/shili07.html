@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        li{list-style:none;}
+        .topDown{display: none;}
+    </style>
+</head>
+<body>
+<li class="on">
+    <a href="" class="menu-btn">我的当当</a>
+    <ul class="topDown">
+        <li><a href="">我的积分</a></li>
+        <li><a href="">我的收藏</a></li>
+        <li><a href="">我的余额</a></li>
+        <li><a href="">我的评价</a></li>
+        <li><a href="">电子书架</a></li>
+    </ul>
+</li>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".on").hover(function () {
+            $(".topDown").show("slow");
+        }, function () {
+            $(".topDown").hide(1000);//hover等同于mouseenter-mouseleave的组合
+        });
+    });
+</script>
+</body>
+</html>

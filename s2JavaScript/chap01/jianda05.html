@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body onload="s1(prompt('请输入今天是星期几',''))">
+<script type="text/javascript">
+    function s1(op1){
+        switch(op1){
+            case "星期一":
+                    alert("新的一周开始了");
+                break;
+            case "星期二":
+            case "星期三":
+            case "星期四":
+                    alert("努力工作");
+                break;
+            case "星期五":
+                    alert("明天就是周末了");
+                break;
+            case "星期六":
+            case "星期日":
+                    alert("放松的休息");
+                break;
+            default :
+                alert("输入错误");
+                break;
+        }
+    }
+</script>
+</body>
+</html>

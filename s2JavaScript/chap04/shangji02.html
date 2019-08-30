@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="1"></div>
+<script type="text/javascript">
+    function Person(){
+
+    }
+    Person.prototype.name="张三";
+    Person.prototype.age="38";
+    Person.prototype.job="歌手";
+    Person.prototype.address="北京";
+    Person.prototype.showName= function () {
+        var str="姓名："+this.name+"<br/>工作："+this.job+"<br/>住址："+this.address;
+        document.getElementById("1").innerHTML=str;
+    };
+    var per=new Person();
+    per.showName();
+</script>
+</body>
+</html>

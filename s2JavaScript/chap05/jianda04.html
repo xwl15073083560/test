@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .s1{width:200px;height:200px;}
+        body{height:1000px;}
+    </style>
+</head>
+<body>
+<div class="s1"><img src="images/pic.gif" id="1"/></div>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    var num=0;
+    $(document).ready(function () {
+        setInterval(s1($(".s1")),4000);
+    });
+    var i=0;
+    function s1(op){
+        i++;
+        switch (i) {
+            case 1:
+                $(op).animate({"margin-left":"200px","margin-top":"200px"},3000);
+                break;
+            case 2:
+                $(op).animate({"margin-left":"300px","margin-top":"300px"},3000);
+                break;
+            case 3:
+                $(op).animate({"margin-left":"400px","margin-top":"400px"},3000);
+                break;
+            case 4:
+                $(op).animate({"margin-left":"500px","margin-top":"500px"},3000);
+                break;
+            default :
+                i = 0;
+                break;
+        }
+    }
+</script>
+</body>
+</html>

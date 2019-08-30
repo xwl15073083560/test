@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>统计包含a或A的字符串的个数</title>
+</head>
+<body>
+<script type="text/javascript">
+    var str=["Ameria","Greece","Britain","Canada","China"];
+    var num=0;
+    document.write("在以下字符中："+"<br/>");
+    for(var i=0;i<str.length;i++){
+        document.write(str[i]+"<br/>");
+        if(str[i].indexOf("a") !=-1||str[i].indexOf("A") !=-1){
+            num++;
+        }
+    }
+    document.write("共有"+num+"个字符串中包含a或A");
+</script>
+</body>
+</html>

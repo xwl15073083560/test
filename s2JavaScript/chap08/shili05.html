@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        li{border:1px dashed gray;}
+    </style>
+</head>
+<body>
+<div class="contain">
+    <div><img src="images/winter.jpg" alt="奥运五环标志" width="320" height="198"/></div>
+    <h2>祝福东奥</h2>
+    <ul class="gameList">
+        <li>1111111111111111111</li>
+        <li>22222222222222222</li>
+        <li>3333333333333333</li>
+        <li>4444444444444444</li>
+    </ul>
+</div>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var $newNode3=$("<li>筹备工作</li>");
+        var $newNode4=$("<li>奥运五环</li>");
+        $("ul").after($newNode3);
+        $("ul").before($newNode4);
+        //$(".gameList li:eq(1)").remove();//删除匹配的节点
+        //$(".gameList li:eq(1)").empty();清空匹配元素中的后代节点
+        //var $newNode5=$("<li>你喜欢哪些运动项目？</li>");
+        //$(".gameList li:eq(3)").replaceWith($newNode5);//把第四个li替换成$newNode5
+
+        $(".gameList li:eq(1)").click(function () {
+            $(this).clone(true).appendTo($(".gameList"));
+        });
+        $(".gameList li:eq(0)").click(function () {
+            $(this).clone(false).appendTo($(".gameList"));
+        });
+        $(".contain img").removeAttr("alt");//删除属性
+        $(".contain img").click(function () {//获取属性值
+            alert($(this).attr("alt"));
+        });
+        $(".contain img").attr({"width":"200","height":"80"});//设置宽高
+        $(".contain :header").css({"background":"blue","color":"red"});//设置h2样式
+        $(".gameList li:last").css("border","none");//最后一个li
+
+    });
+</script>
+</body>
+</html>

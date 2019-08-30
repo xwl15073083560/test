@@ -1,0 +1,131 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用正则表达式验证注册页面</title>
+    <link rel="stylesheet" href="register1.css">
+</head>
+
+<body>
+<section id="register">
+    <div><img src="images/logo1.jpg" alt="logo" /><img src="images/banner.jpg" alt="banner" /></div>
+    <h1 class="hr_1">新用户注册</h1>
+    <form action="" method="post" name="myform">
+        <dl>
+            <dt>用户名：</dt>
+            <dd><input id="user" type="text" /><div id="user_prompt">用户名由英文字母和数字组成的4-16位字符，以字母开头</div></dd>
+        </dl>
+        <dl>
+            <dt>密码：</dt>
+            <dd><input id="pwd" type="password"  /><div id="pwd_prompt">密码由英文字母和数字组成的4-10位字符</div></dd>
+        </dl>
+        <dl>
+            <dt>确认密码：</dt>
+            <dd><input id="repwd" type="password"/><div id="repwd_prompt"></div></dd>
+        </dl>
+        <dl>
+            <dt>电子邮箱：</dt>
+            <dd><input id="email" type="text"/><div id="email_prompt"></div></dd>
+        </dl>
+        <dl>
+            <dt>手机号码：</dt>
+            <dd><input id="mobile" type="text" /><div id="mobile_prompt"></div></dd>
+        </dl>
+        <dl>
+            <dt>生日：</dt>
+            <dd><input id="birth" type="text"/><div id="birth_prompt"></div></dd>
+        </dl>
+        <dl>
+            <dt>&nbsp;</dt>
+            <dd><input name="" type="image" src="images/register.jpg" class="btn" /></dd>
+        </dl>
+    </form>
+</section>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //验证用户名
+        $("#user").blur(function () {
+            var user=$(this).val();
+            var $udiv=$("#user_prompt");
+            var reg=/^[a-zA-Z][A-Za-z0-9]{3,15}$/;//第一位为单字母 后面为匹配数字跟字母至少3次 不超过15次
+            if(reg.test(user)==false){
+                $udiv.html("用户名输入错误 请重新输入");
+                return false;
+            }
+            $udiv.html("");
+            return true;
+        });
+        //验证密码
+        $("#pwd").blur(function () {
+            var pwd=$(this).val();
+            var $pdiv=$("#pwd_prompt");
+            var reg1=/^[A-Za-z0-9]{4,10}$/;
+            if(reg1.test(pwd)==false){
+                $pdiv.html("密码输入错误 ");
+                return false;
+            }
+            $pdiv.html("");
+            return true;
+        });
+        //验证再次输入密码
+        $("#repwd").blur(function () {
+            var repwd=$(this).val();
+            var pwd=$("#pwd").val();
+            var $divrepwd=$("#repwd_prompt");
+            var reg1=/^[A-Za-z0-9]{4,10}$/;
+            if(reg1.test(repwd)==false){
+                $divrepwd.html("密码格式错误！");
+                return false;
+            }
+            if(repwd!=pwd){
+                $divrepwd.html("两次输入密码不一致！");
+                return false;
+            }
+            $divrepwd.html("");
+            return true;
+        });
+        //验证手机号码
+        $("#mobile").blur(function () {
+            var mobile=$(this).val();
+            var $divmobile=$("#mobile_prompt");
+            var reg=/^1\d{10}$/;
+            if(reg.test(mobile)==false){
+                $divmobile.html("手机号码输入错误");
+                return false;
+            }
+            $divmobile.html("");
+            return true;
+        });
+        //验证生日
+        $("#birth").blur(function () {
+            var birth=$(this).val();
+            var $divbirth=$("#birth_prompt");
+            var reg=/^19\d{2}|^200\d|^201[0-6]$/;
+            var reg1=/^0?[1-9]|^1[0-2]$/;
+            var reg2=/^0?[1-9]|^[1-2]\d|^3[0-1]$/;
+            var regall=/^(19\d{2}|200\d|201[0-6])[-](0?[1-9]|1[0-2])[-](0?[1-9]|[1-2]\d|3[0-1])$/;
+            if(regall.test(birth)==false){
+                $divbirth.html("生日输入错误");
+                return fasle;
+            }
+            $divbirth.html("");
+            return true;
+        });
+        //验证电子邮箱
+        $("#email").blur(function () {
+            var email=$(this).val();
+            var $divemail=$("#email_prompt");
+            var reg=/^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/;
+            if(reg.test(email)==false){
+                $divemail.html("Email格式输入错误");
+                return false;
+            }
+            $divemail.html("");
+            return true;
+        });
+    });
+</script>
+</body>
+</html>

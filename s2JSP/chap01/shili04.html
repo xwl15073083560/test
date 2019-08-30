@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<%@ page language="java" import="java.util.*,java.text.*" contentType="text/html;charset=UTF-8" %>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<!--这是HTML注释 客户端可以看到源代码-->
+<%--这是JSP注释 客户端无法看到源代码--%>
+<body>
+你好，今天是
+<%
+    //使用预定格式将日期转换为字符串
+    SimpleDateFormat f=new SimpleDateFormat("yyyy年MM月dd日");
+    String str=f.format(new Date());
+%>
+<%= str %>
+<%! String d="this is declaration"; %>
+<%= d %>
+</body>
+</html>

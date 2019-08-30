@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="register">
+    <form action="success.html" method="post" id="myform" name="myform">
+        <ul>
+            <li class="bold">登录休闲网</li>
+            <li><span>Email:</span><input type="text" class="inputs" value="请输入正确的电子邮箱"/></li>
+            <li><span>密码：</span><input type="password" class="inputs"/></li>
+            <li><input type="submit" name="btn" id="btn" value="登录" class="rb1"/></li>
+        </ul>
+    </form>
+</div>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("form").submit(function () {
+            var mail=$("#myform :text").val();
+            if(mail==""){
+                alert("Email 不能为空");
+                $("#myform :text").focus();
+                $("#myform :text").select();
+                return false;
+            }
+            if(mail.indexOf("@")==-1){
+                alert("Email格式不正确\n必须包含@");
+                $("#myform :text").focus();
+                $("#myform :text").select();
+                return false;
+            }
+            if(mail.indexOf(".")==-1){
+                alert("Emai格式不正确\n必须包含.");
+                $("#myform :text").focus();
+                $("#myform :text").select();
+                return false;
+            }
+            if(mail.indexOf("@")>mail.indexOf(".")){
+                $("#myform :text").focus();
+                $("#myform :text").select();
+                alert(".不能在@前面");
+                return false;
+            }
+            return true;
+        });
+        $("#myform :text").focus(function () {
+            if($(this).val()=="请输入正确的电子邮箱"){
+                $(this).val("");
+                $(this).css("border","1px solid #ff0000");
+            }
+        }).blur(function () {
+            if($(this).val()==""){
+                $(this).val("请输入正确的电子邮箱");
+                $(this).css("border","1px solid gray");
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>时钟特效</title>
+</head>
+<body>
+<div id="myclock"></div>
+<script type="text/javascript">
+    function disptime(){
+        var today=new Date();//获得当前时间
+        var hh=today.getHours();//获得小时 分钟 秒
+        var mm=today.getMinutes();//获得分钟
+        var ss=today.getSeconds();//获得秒
+        //设置div的内容为当前时间
+        document.getElementById("myclock").innerHTML="现在是："+hh+":"+mm+":"+ss;
+    }
+    disptime();
+</script>
+</body>
+</html>

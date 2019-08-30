@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>创建person对象</title>
+</head>
+<body>
+<div id="intro"></div>
+<script type="text/javascript">
+    var person=new Object();
+    person.name="张三";
+    person.age="38";
+    person.job="歌手";
+    person.address="北京";
+    var str="姓名："+person.name+"<br/>年龄："+person.age+"<br/>工作："+person.job+"<br/>住址："+person.address;
+    person.intro=function(){
+        document.getElementById("intro").innerHTML=str;
+    };
+    person.intro();
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>构造函数</title>
+</head>
+<body>
+<script type="text/javascript">
+    function Flower(name,genera,area,uses){
+        this.name=name;
+        this.genera=genera;
+        this.area=area;
+        this.uses=uses;
+        this.showName= function () {
+            alert(this.uses);
+            alert(flower1.constructor==Flower);
+        }
+
+    }
+    var flower1=new Flower("长春花","夹竹桃科","非洲","观赏");
+    flower1.showName();
+</script>
+</body>
+</html>

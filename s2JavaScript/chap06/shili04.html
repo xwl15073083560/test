@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        li{list-style: none;border-bottom:1px dashed red;}
+        ul,li{margin:0;
+            padding: 0;}
+        .contain{margin:0 auto;width:150px;border:1px solid red}
+        div,h2,ul{margin:0;padding:0;line-height: 30px;}
+    </style>
+</head>
+<body>
+<div class="contain">
+    <h2>祝福东奥</h2>
+    <ul>
+        <li>111111111111</li>
+        <li>222222222222</li>
+        <li>333333333333</li>
+        <li>444444444444</li>
+        <li>555555555555</li>
+        <li>666666666666</li>
+    </ul>
+</div>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //用过滤选择器给h2设置背景颜色和字体颜色
+        $(".contain :header").css({"background":"#2a65ba","color":"#ffffff"});
+//        $(".contain li:first").css({"font-size":"18px","color":"#e90202"});
+        $(".contain li:last").css("border","none");
+//        $(".contain li:even").css("background","#f0f0f0");//偶数
+//        $(".contain li:odd").css("background","#cccccc");//奇数
+        $(".contain li:lt(2)").css("color","#708b02");//前两行
+        $(".contain li:gt(3)").css("color","#b66302");//后两行
+    });
+</script>
+</body>
+</html>

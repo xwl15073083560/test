@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>制作12进制的时钟特效</title>
+</head>
+<body>
+<div >
+    <h2>你好，欢迎访问贵美商城！</h2>
+    <h2 id="myclock"></h2>
+</div>
+<script type="text/javascript">
+    function time(){
+       var today=new Date();
+        var year=today.getFullYear();//年
+        var month=today.getMonth()+1;//月
+        var day=today.getDate();//日
+        var week=today.getDay();//星期
+        var hh=today.getHours();//时
+        var mm=today.getMinutes();//分
+        var ss=today.getSeconds();//秒
+        var apm="";
+        var wk="";
+        switch(week){
+            case 0:
+                wk="星期日";
+                break;
+            case 1:
+                wk="星期一";
+                break;
+            case 2:
+                wk="星期二";
+                break;
+            case 3:
+                wk="星期三";
+                break;
+            case 4:
+                wk="星期四";
+                break;
+            case 5:
+                wk="星期五";
+                break;
+            case 6:
+                wk="星期六";
+                break;
+        }
+        if(hh>12){
+            hh-=12;
+            apm="PM";
+        }else{
+            apm="AM";
+        }
+        document.getElementById("myclock").innerHTML=year+"年"+month+"月"+day+"日"+"&nbsp&nbsp"+hh+":"+mm+":"+ss+"&nbsp&nbsp"+apm+"&nbsp&nbsp"+wk;
+    }
+    var myTime=setInterval("time()",1000);
+</script>
+</body>
+</html>

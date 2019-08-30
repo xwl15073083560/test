@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body id="1">
+<script type="text/javascript">
+    function Student(name,age,jieshao){
+        this.name=name;
+        this.age=age;
+        this.jieshao=jieshao;
+    }
+    Student.prototype.show=function(){
+        var p=document.createElement("p");
+        var str="姓名："+this.name+"<br/>年龄："+this.age+"<br/>自我介绍："+this.jieshao;
+        p.innerHTML=str;
+        return p;
+    };
+    var stu1=new Student("王小明",16,"我是高中一年级的学生 身高1.8米");
+    var stu2=new Student("黄妞妞",6,"我今年6岁了");
+    var bd=document.getElementById("1");
+    bd.appendChild(stu1.show());
+    bd.appendChild(stu2.show());
+</script>
+</body>
+</html>

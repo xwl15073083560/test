@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>统计各科目成绩</title>
+</head>
+<body>
+<input type="button" name="btn" value="计算科目总成绩" onclick="s1(prompt('请输入考试科目数量：',''))"/>
+<script type="text/javascript">
+    function s1(op1){
+        if(isNaN(op1)){
+            alert('输入的不是数字！');
+        }else if(op1==0){
+            alert('不能输入0');
+        }else if(op1<0){
+            alert('不能输入负数');
+        }else{
+            var sum=0;
+            for(var i=1;i<=op1;i++){
+               var j=prompt('请输入第'+i+'门科目成绩：');
+                if(isNaN(j)){
+                    alert('输入的不是数字！');
+                    return;
+                }else if(j==0){
+                    alert('不能输入0');
+                    return;
+                }else if(j<0){
+                    alert('不能输入负数');
+                    return;
+                }else{
+                    sum=sum+parseInt(j);
+                }
+            }
+            alert(op1+'门科目总成绩是：'+sum);
+        }
+    }
+</script>
+</body>
+</html>

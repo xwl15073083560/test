@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul style="border: 1px solid blue;height: 60px;width:300px;overflow: hidden;">
+    <li>aaaaaaaaaaaaaaaaaaaaa</li>
+    <li id="id[0]">bbbbbbbbbbbbbbbbbbbbb</li>
+    <li>ccccccccccccccccccccc</li>
+    <li>ddddddddddddddddddddd</li>
+    <li >eeeeeeeeeeeeeeeeeeeee</li>
+    <li class="s1.s2">fffffffffffffffffffff</li>
+    <li>ggggggggggggggggggggg</li>
+    <li>hhhhhhhhhhhhhhhhhhhhh</li>
+    <a href="">1111</a>
+</ul>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+//        var $s2=$("#id\\[0\\]");
+//        alert($s2.html());
+        var $s1=$(".s1.s2");
+        alert($s1.html());
+//每隔两秒进行一次滚动
+//        var timing =setInterval("info()",0);
+//
+//        $("ul").hover(
+//                function(){clearInterval(timing);},
+//                function(){timing = setInterval("info()",0);}
+//        )
+//
+//    });
+//    function info(){
+//
+////复制第一个li
+//
+//        var li =$("ul>li:eq(0)").clone();
+//
+////使用animate对li的外边距进行调整从而达到向上滚动的效果
+//        $("ul>li:eq(0)").animate({marginTop:"-20px"},1200,function(){
+//
+////对已经消失的li进行删除
+//            $("ul>li:eq(0)").remove();
+//
+////把复制后的li插入到最后
+//            $("ul").append(li);
+//        });
+    });
+</script>
+</body>
+</html>

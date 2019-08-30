@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #txt_show{display: none;color:#00c;}
+        #txt_hide{display: block;color:#F30;}
+    </style>
+</head>
+<body>
+<p id="txt_hide">点击按钮，我会被隐藏哦~</p>
+<p id="txt_show">隐藏的我，被显示了，嘿嘿</p>
+<input type="button" name="show" value="点击显示文字" id="show"/>
+<input type="button" name="hide" value="点击隐藏文字" id="hide"/>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#show").click(function () {
+            $("p:hidden").show();
+        });
+        $("#hide").click(function () {
+            $("p:visible").hide();
+        });
+    });
+</script>
+</body>
+</html>

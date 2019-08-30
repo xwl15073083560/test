@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>变量的作用域</title>
+</head>
+<body onload="second()">
+<script type="text/javascript">
+    var i=20;
+    function first(){
+        var i=5;
+        for(var j=0;j<i;j++){
+            document.write("&nbsp;&nbsp;&nbsp;&nbsp;"+j);
+        }
+    }
+    function second(){
+        var t=prompt("请输入一个数：","");
+        if(t>i){
+            document.write(t)
+        }else{
+            document.write(i);
+        }
+        first();
+    }
+</script>
+</body>
+</html>

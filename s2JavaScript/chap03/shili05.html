@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p>选择你喜欢的书
+    <input type="radio" name="book" onclick="book()"/>我和狗狗一起活下来
+    <input type="radio" name="book" onclick="book()"/>灰霾来了怎么办
+</p>
+<div></div>
+<script type="text/javascript">
+    function book(){
+        var ele=document.getElementsByName("book");
+        var bName=document.getElementsByTagName("div")[0];
+        if(ele[0].checked){
+            var img=document.createElement("img");
+            img.setAttribute("src","image/dog.jpg");
+            img.setAttribute("alt","我和狗狗一起活下来");
+            bName.appendChild(img);
+        }else if(ele[1].checked){
+            var img1=document.createElement("img");
+            img1.setAttribute("src","image/mai.jpg");
+            img1.setAttribute("alt","灰霾来了怎么办");
+            img1.setAttribute("onclick","copyNode()");
+            bName.appendChild(img1);
+        }
+    }
+    function copyNode(){
+        var bName=document.getElementsByTagName("div")[0];
+        var copy=bName.lastElementChild.cloneNode(false);
+        bName.insertBefore(copy,bName.firstElementChild);
+    }
+</script>
+</body>
+</html>

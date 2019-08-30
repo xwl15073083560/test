@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .title{font-size:14px;color:#03f;text-align:center;}
+        .text{padding:10px;text-align:center;}
+        .content{background-color:#ffff00;}
+        .border{border:1px dashed #333;}
+    </style>
+</head>
+<body>
+<h2 class="title">jQuery操作</h2>
+<p class="text">
+    css()设置或返回样式属性<br/>
+    addClass()增加一个或多个类<br/>
+    removeClass()移除一个或多个类
+</p>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("h2").mouseover(function () {
+            if(i=!$("p").hasClass("content")){
+                $("p").addClass("content");
+                //alert(i);
+            }
+            $("p").addClass("content");
+        }).mouseout(function () {
+            if(b=$("p").hasClass("content")){
+                $("p").removeClass("content");
+                //alert(b);
+            }
+
+        });
+    });
+</script>
+</body>
+</html>

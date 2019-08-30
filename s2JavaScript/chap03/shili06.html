@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>删除和替换节点</title>
+</head>
+<body>
+<ul>
+    <li>
+        <img src="image/1.gif" alt="" id="first"/>
+        <p><input type="button" value="删除我吧" onclick="de()"/></p>
+    </li>
+    <li>
+        <img src="image/2.gif" alt="" id="second"/>
+        <p><input type="button" value="换换我吧" onclick="rep()"/></p>
+    </li>
+</ul>
+<script type="text/javascript">
+    function de(){
+        var delNode=document.getElementById("first");
+        delNode.parentNode.removeChild(delNode);
+    }
+    function rep(){
+        var oldNode=document.getElementById("second");
+        var newNode=document.createElement("img");
+        newNode.setAttribute("src","image/3.jpg");
+        oldNode.parentNode.replaceChild(newNode,oldNode);
+    }
+</script>
+</body>
+</html>

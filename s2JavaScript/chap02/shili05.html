@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="content">
+    <img src="image/jay1.jpg" alt="岛上书店"/>
+    <div class="r">
+        <div id="book">书名：岛上书店</div>
+        <input type="button" name="changeBook" value="换换名称" onclick="alterBook()"/>
+        <br/>四级名称：
+        <input type="text" name="season" value="春"/>
+        <input type="text" name="season" value="夏"/>
+        <input type="text" name="season" value="秋"/>
+        <input type="text" name="season" value="冬"/><br/><br/>
+        <input type="button" name="b2" value="input内容" onclick="all_input()"/>
+        <input type="button" name="b3" value="四季名称" onclick="s_input()"/>
+        <input type="button" name="b4" value="清空页面内容" onclick="clearAll()"/>
+        <p id="replace"></p>
+    </div>
+</div>
+<script type="text/javascript">
+    function alterBook(){
+        document.getElementById("book").innerHTML="现象级全球畅销书";
+    }
+    function all_input(){
+        var aInput=document.getElementsByTagName("input");
+        var sStr="";
+        for(var i=0;i<aInput.length;i++){
+            sStr+=aInput[i].value+"&nbsp;&nbsp;";
+        }
+        document.getElementById("replace").innerHTML=sStr;
+    }
+    function s_input(){
+        var aInput=document.getElementsByName("season");
+        var sStr="";
+        for(var i=0;i<aInput.length;i++){
+            sStr+=aInput[i].value+"&nbsp;&nbsp;";
+        }
+        document.getElementById("replace").innerHTML=sStr;
+    }
+    function clearAll(){
+        document.write("");
+    }
+</script>
+</body>
+</html>
